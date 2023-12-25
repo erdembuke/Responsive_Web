@@ -57,6 +57,7 @@ nav {
     padding-top: 2rem;
     padding-bottom: 2rem;
     position: fixed;
+    z-index: 500; /* tum ogelerin ustunde kalmasi icin */
 }
 
 #logo-box {
@@ -122,9 +123,17 @@ header h2 {
     font-weight: 300;
 }
 
-.star-light {
+hr.star-light { /* header kismindaki yildizi beyaz yapmak icin */
+    border-color: #fff;
+}
+
+hr.star-dark { /* portfolio kismindaki yildizi dark yapmak icin */
+    border-color: #2d3d4f;
+}
+
+.star-light, .star-dark { /* iki adet yildizin de renk haric css leri ayni */
     border: none;
-    border-top: 0.4rem solid #fff;
+    border-top: 0.4rem solid;
     border-radius: 10px;
     max-width: 25rem;
     margin: 2.5rem auto;
@@ -132,16 +141,85 @@ header h2 {
     height: 0px;
 }
 
-.star-light::after { /* yildiz eklemek icin after */
-    content: "\2605";
+/* header ve portfolio kismindaki yildizlarin oldugu kisim */
+
+.star-light::after{
     color: #fff;
+    background-color: #1ABC9B; /* yildizin kenarlarini bosalttik */
+}
+
+.star-dark::after {
+    color: #2d3d4f;
+    background-color: #fff; /* yildizin kenarlarini bosalttik */
+}
+
+.star-light::after, .star-dark::after { /* yildiz eklemek icin after */
+    content: "\2605";
     font-weight: 900;
     font-size: 3.2rem;
     position: relative;
     top: -28px; /* yildizi yukariya aliyoruz */
     padding: 0 8px;
-    background-color: #1abc9b; /* yildizin kenarlarini bosalttik */
 }
+
+/* Portfolio */
+
+#portfolio {
+    height: 600px;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    text-align: center;
+}
+
+#portfolio h2 {
+    font-size: 4.8rem;
+    color: #2d3d4f;
+}
+
+.img-fluid-p {
+    max-width: 100%;  
+    height: auto; 
+}
+
+.col {
+    float: left;
+    width: 33.333%;
+    padding: 10px;
+}
+
+.portfolio-item {
+    position: relative;
+}
+
+.portfolio-item img {
+    display: block;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1ABC9B;
+    opacity: 0;
+}
+
+.img-overlay .icon {
+    color: #fff;
+    font-size: 8rem; /* iconlar font size ile buyur */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* tam ortaya gelmesi icin*/
+}
+
+.portfolio-item:hover .img-overlay {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+
 
 
 
