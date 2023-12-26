@@ -189,7 +189,11 @@ nav {
         right: 5px;
         font-size: 3rem;
     }
-} 
+
+    #nav-links.responsive li:not(:first-child){ /* navlinks responsive sinifina SAHIPSE, ilk child (menu bar) haric hepsi gorunmez olsun */
+        display: none;
+    }
+    } 
 
 /* Header */
 
